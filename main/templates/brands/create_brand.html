@@ -1,0 +1,22 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock  %}
+
+{% block content %}
+<div class="container">
+    
+    <h1 class="h1"> {{title}} </h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_name" class="form-label">{{form.name.label}}</label>
+            {{form.name}}
+            {{form.name.errors}}
+        </div>
+        <input class="btn btn-success" type="submit" value="Guardar">
+    </form>
+    
+</div>
+{% endblock  %}

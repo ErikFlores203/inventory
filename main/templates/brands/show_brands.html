@@ -1,0 +1,34 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock  %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success text-center">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+
+    <h1 class="h1"> {{title}} </h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">Marca</th>
+              <th scope="col">Creado el</th>
+              <th scope="col">Borrar</th>
+            </tr>
+          </thead>
+        {% for brand in brands %}
+          <tbody>
+            <tr>
+                <th scope="row">{{brand.name}}</th>
+                <td>{{brand.created_at}}</td>
+                <td><a class="btn btn-outline-danger" href="{% url 'delete_brand' brand.id %}">X</a></td>
+            </tr>
+          </tbody>
+        {% endfor %}
+    </table>
+    
+{% endblock  %}

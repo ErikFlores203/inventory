@@ -1,0 +1,15 @@
+{% extends 'layouts/layout.html' %}
+{% block title %}
+    {{title}}
+{% endblock  %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success text-center">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+    {% include 'products/show_products.html' %}
+   
+
+{% endblock  %}
